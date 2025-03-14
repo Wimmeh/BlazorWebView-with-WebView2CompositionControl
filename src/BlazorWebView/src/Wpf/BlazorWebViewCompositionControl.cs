@@ -219,7 +219,11 @@ namespace Microsoft.AspNetCore.Components.WebView.Wpf
 			KeyboardNavigation.SetTabNavigation(this, keyboardNavigationMode);
 		}
 
-		private void ApplyUseLayoutRounding(bool useLayoutRounding) => WebView.UseLayoutRounding = useLayoutRounding;
+		private void ApplyUseLayoutRounding(bool useLayoutRounding)
+		{
+			ApplyTemplate();
+			WebView.UseLayoutRounding = useLayoutRounding;
+		}
 
 		private bool RequiredStartupPropertiesSet =>
 			_webview != null &&
